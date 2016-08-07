@@ -1,5 +1,5 @@
 baseurl = "http://leibnik.github.io/"
-languageCode = "en-us"
+languageCode = "zh-cn"
 title = "喵爵"
 theme = "hugo-lithium-theme"
 googleAnalytics = ""
@@ -13,15 +13,26 @@ disqusShortname = ""
     post = "/:year/:month/:day/:title/"
     page = "/:title/"
 
+
 [[menu.main]]
     name = "编程"
     url = "/categories/编程"
+    weight = 4
+
 [[menu.main]]
     name = "数学"
     url = "/categories/数学"
+    weight = 5
+
+[[menu.main]]
+    name = "乱扯一通"
+    url = "/categories/乱扯一通"
+    weight = 6
 [[menu.main]]
     name = "关于"
     url = "/about"
+    weight = 7
+
 
 
 [params]
