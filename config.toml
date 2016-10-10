@@ -1,4 +1,4 @@
-baseurl = "http://leibnik.github.io/"
+baseurl = "http://nyakokishi.github.io/"
 languageCode = "zh-cn"
 title = "喵爵"
 theme = "hugo-lithium-theme"

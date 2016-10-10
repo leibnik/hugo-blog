@@ -1,12 +1,12 @@
-title: 使用Bmob后端云遇到的坑
-date: 2016-02-27
-tags: [android,第三方]
-categories: android
-layout: post
----
++++
+title = "使用Bmob后端云遇到的坑"
+date = "2016-02-27"
+tags = ["android","第三方"]
+categories = ["android"]
++++
+
 最近尝试使用Bmob提供的后端云，请求响应速度还行，功能上基本能满足开发需求，期间遇到一些坑，查了文档也没见说明，在此做一下记录。
 
-<!-- more -->
 
 比如像微信朋友圈那样发一条带图片的动态。假如是这样的一个类：
 ```java

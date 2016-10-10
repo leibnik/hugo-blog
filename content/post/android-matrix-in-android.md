@@ -1,12 +1,11 @@
-title: 理解android矩阵
-date: 2016-01-12
-tags: [android, math]
-categories: android
-layout: post
----
++++
+title = "理解android矩阵"
+date = "2016-01-12"
+tags = ["android", "math"]
+categories = ["android"]
++++
 许多时候我们在数学课本上学的可能更多是知其然而不知其所以然，然而要理解一个概念可能只需要一个观点才不至于被搞懵，比如从应用的角度出发把线性代数当作是一种人为设计的**领域特定语言**（domain specific language）可能更容易被程序员们所接受。具体参考：[程序观点下的线性代数](http://www.cnblogs.com/weidagang2046/p/linear-algebra-from-programming-perspective.html)。
 
-<!-- more -->
 
 下面先简单介绍（复习）矩阵的定义、矩阵的运算，然后才是在android中使用矩阵
 

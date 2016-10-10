@@ -1,16 +1,16 @@
-title: 【译】android中使用RecyclerView
-date: 2016-02-21
-tags: [android, 翻译]
-categories: android
-layout: post
----
++++
+title = "【译】android中使用RecyclerView"
+date = "2016-02-21"
+tags = ["android", "翻译"]
+categories = ["android"]
++++
 
 此篇博客为译文，转载请注明出处。
 
 * 原文：[Android Working with Recycler View](http://www.androidhive.info/2016/01/android-working-with-recycler-view/)
 * 原文作者：Ravi Tamada
 * 译者：leibnik
-* 代码地址：[RecyclerViewDemo](https://github.com/leibnik/RecyclerViewDemo)
+* 代码地址：[RecyclerViewDemo](https://github.com/nyakokishi/RecyclerViewDemo)
 
 [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
 是一个更高级版本的ListView，较后者有着性能的提升和其他的优点。同时使用RecyclerView和[CardView](http://developer.android.com/reference/android/support/v7/widget/CardView.html)来生成列表和表格都是非常简单的事情。[这里](http://developer.android.com/training/material/lists-cards.html)
