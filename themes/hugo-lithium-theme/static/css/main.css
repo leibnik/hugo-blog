@@ -143,16 +143,13 @@ a {
 
 .article-content a {
   text-decoration: none;
-  color: inherit;
-  border-bottom: 3px solid #CBF8DF;
-  box-shadow: inset 0 -4px 0 #CBF8DF;
-  background: transparent;
+  color: #009fef;
   transition: background 150ms ease;
 }
 
 .article-content a:hover,
 .article-content a:focus {
-  background: #CBF8DF;
+  background: #EBF8DF;
 }
 
 .article-content hr {
@@ -162,6 +159,64 @@ a {
   overflow: hidden;
   border: none;
   background: #e5e5e5;
+}
+
+blockquote {
+    border-left: 5px solid #eee;
+    background: #f9f9f9;
+    padding: 10px 10px 10px 25px;
+}
+
+.content img {
+    display: block;
+    margin: 0 auto;
+}
+
+code {
+    padding: 2px 4px;
+    background-color: #fdf6e3;
+    border: none;
+    color: #657b83;
+    font-size: 14px;
+    white-space: pre-wrap;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    border-left: none;
+    border-left: none;
+}
+
+td {
+    padding: 8px;
+    border-left: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    line-height: 20px;
+    vertical-align: top;
+}
+
+th {
+    vertical-align: bottom;
+    padding: 8px;
+    border-left: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    line-height: 20px;
+}
+
+pre {
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+pre code{
+    background: transparent;
 }
 
 .highlight {
@@ -286,8 +341,8 @@ a {
   }
 
   .content {
-    font-size: 19px;
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.7;
     margin: 100px auto;
   }
 
@@ -311,7 +366,7 @@ a {
   }
 
   .article-title {
-    font-size: 42px;
+    font-size: 34px;
   }
 
   .article-duration {

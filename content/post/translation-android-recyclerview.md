@@ -1,5 +1,5 @@
 +++
-title = "【译】android中使用RecyclerView"
+title = "【译】android RecyclerView的使用"
 date = "2016-02-21"
 tags = ["android", "翻译"]
 categories = ["android"]
@@ -9,19 +9,19 @@ categories = ["android"]
 
 * 原文：[Android Working with Recycler View](http://www.androidhive.info/2016/01/android-working-with-recycler-view/)
 * 原文作者：Ravi Tamada
-* 译者：leibnik
+* 译者：nyakokishi
 * 代码地址：[RecyclerViewDemo](https://github.com/nyakokishi/RecyclerViewDemo)
 
 [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
-是一个更高级版本的ListView，较后者有着性能的提升和其他的优点。同时使用RecyclerView和[CardView](http://developer.android.com/reference/android/support/v7/widget/CardView.html)来生成列表和表格都是非常简单的事情。[这里](http://developer.android.com/training/material/lists-cards.html)
-有关于RecyclerView和一些例子的完整介绍。
+ 是一个更高级版本的 ListView ，较后者有着性能的提升和其他的优点。同时使用 RecyclerView 和 [CardView](http://developer.android.com/reference/android/support/v7/widget/CardView.html) 来生成列表和表格都是非常简单的事情。[这里](http://developer.android.com/training/material/lists-cards.html)
+有关于 RecyclerView 和一些例子的完整介绍。
 
 <!-- more -->
 
-在本次教程里，我们将学习如何结合自定义布局渲染出一个简单的RecyclerView。同时，我们将学习如何写出一个适配器类，以及为列表添加分割线，为列表项添加点击事件。
-具体的，我们将把这个RecyclerView设计成呈现电影信息的列表，包括标题，类型，以及发行时间。
+在本次教程里，我们将学习如何结合自定义布局渲染出一个简单的 RecyclerView 。同时，我们将学习如何写出一个适配器类，以及为列表添加分割线，为列表项添加点击事件。
+具体的，我们将把这个 RecyclerView 设计成呈现电影信息的列表，包括标题，类型，以及发行时间。
 
-以下就是包含必要配置的RecyclerView。
+以下就是包含必要配置的 RecyclerView 。
 
 ```html
 <android.support.v7.widget.RecyclerView
@@ -31,13 +31,13 @@ categories = ["android"]
         android:layout_height="wrap_content"/>
 ```
 
-在开始之前，你必须确保将你的Android Studio更新到[最新版本](http://tools.android.com/)。当前我的Android Studio已经更新到了**Android Studio 2.0 Preview 6**(译者注：真够快的)。
+在开始之前，你必须确保将你的 Android Studio 更新到[最新版本](http://tools.android.com/)。当前我的 Android Studio 已经更新到了 **Android Studio 2.0 Preview 6** (译者注：真够快的)。
 
-###一、新建项目
-1. 在android studio中，点击File->New Project，填好所有必填项后创建项目。
-当提示选择默认的activity时，选择**Blank Activity**然后继续。
+### 一、新建项目
+1. 在 android studio 中，点击 File->New Project ，填好所有必填项后创建项目。
+当提示选择默认的 activity 时，选择 **Blank Activity** 然后继续。
 
-2. 打开**build.gradle**添加RecyclerView的依赖。`com.android.support:recyclerview-v7:23.1.1`，然后rebuild项目。
+2. 打开 **build.gradle** 添加 RecyclerView 的依赖。 `com.android.support:recyclerview-v7:23.1.1` ，然后 rebuild 项目。
 ```java
 BUILD.GRADLE
 dependencies {
@@ -50,8 +50,9 @@ dependencies {
 ```
 
 
-3. 在最新版本的build tools中，android studio会为每个activity创建两个布局文件。对于MainActivity，它创建了**activity_main.xml**(包含CoordinatorLayout和AppBarLayout)
-以及**content_main.xml**(对应实际的内容)。打开**content_main.xml**添加RecyclerView。
+3. 在最新版本的 build tools 中， android studio 会为每个 activity 创建两个布局文件。对于 MainActivity ，它创建了 **activity_main.xml** (包含CoordinatorLayout和AppBarLayout)
+以及 **content_main.xml** (对应实际的内容)。打开 **content_main.xml** 添加 RecyclerView 。
+
 ```html
 CONTENT_MAIN.XML
 
@@ -77,7 +78,8 @@ CONTENT_MAIN.XML
 
 
 
-4. 在res->values路径下打开**colors.xml**并添加以下几种颜色。
+4. 在 res->values 路径下打开 **colors.xml** 并添加以下几种颜色。
+
 ```html
 COLORS.XML
 
@@ -91,10 +93,11 @@ COLORS.XML
 </resources>
 ```
 
-###二、写适配器类
-添加完RecyclerView之后，我们开始写适配器类来填充数据。RecyclerView的适配器和ListView的一样只是重写的方法不同。
+### 二、写适配器类
+添加完 RecyclerView 之后，我们开始写适配器类来填充数据。 RecyclerView 的适配器和 ListView 的一样只是重写的方法不同。
 
-5. 新建一个类**Movie**并声明title，genre以及year。同时为每个变量生成相应的getter/setter方法。
+5. 新建一个类 **Movie** 并声明 title ， genre 以及 year 。同时为每个变量生成相应的 getter/setter 方法。
+
 ```java
 MOVIE.JAVA
 
@@ -138,7 +141,8 @@ public class Movie {
 }
 ```
 
-6. 使用下面的代码新建一个布局文件**movie_list_row.xml**，这个布局文件通过展示电影名称，类型，发行年份来渲染了RecyclerView中单个的项。
+6. 使用下面的代码新建一个布局文件 **movie_list_row.xml** ，这个布局文件通过展示电影名称，类型，发行年份来渲染了 RecyclerView 中单个的项。
+
 ```html
 MOVIE_LIST_ROW.XML
 
@@ -180,8 +184,9 @@ MOVIE_LIST_ROW.XML
 </RelativeLayout>
 ```
 
-7. 现在新建一个类**MoviesAdapter.java**并添加如下的代码。其中**onCreateViewHolder()**方法使**movie_list_row.xml**布局得到填充。
-在**onBindViewHolder()**方法中将电影信息（标题，类型，年份）设置到每一项中。
+7. 现在新建一个类 **MoviesAdapter.java** 并添加如下的代码。其中 **onCreateViewHolder()** 方法使 **movie_list_row.xml** 布局得到填充。
+在 **onBindViewHolder()** 方法中将电影信息（标题，类型，年份）设置到每一项中。
+
 ```java
 MOVIESADAPTER.JAVA
 
@@ -238,7 +243,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 }
 ```
 
-8. 现在打开**MainActivity.java**并依据下面代码做修改。其中**prepareMovieData()**方法为列表添加了样例数据。
+8. 现在打开 **MainActivity.java** 并依据下面代码做修改。其中 **prepareMovieData()** 方法为列表添加了样例数据。
+
 ```java
 MAINACTIVITY.JAVA
 
@@ -336,15 +342,16 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-现在如果你运行你的app，你将看到电影的数据以列表的方式展示了。
+现在如果你运行你的 app ，你将看到电影的数据以列表的方式展示了。
 
 ![](http://ww2.sinaimg.cn/mw690/006nezkigw1f16n7lfcmsj30k00qh0us.jpg)
 
-###三、添加RecyclerView的分割线
-RecyclerView并没有任何与分割线直接相关的属性去显示分割线。然而你需要的是继承类[ItemDecoration]()
-同时使用**addItemDecoration()**方法来显示分割线。
+### 三、添加 RecyclerView 的分割线
+RecyclerView 并没有任何与分割线直接相关的属性去显示分割线。然而你需要的是继承类 [ItemDecoration]() 
+同时使用 **addItemDecoration()** 方法来显示分割线。
 
-9. 使用以下代码创建一个类**DividerItemDecoration.java**
+9. 使用以下代码创建一个类 **DividerItemDecoration.java**
+
 ```java
 
 DIVIDERITEMDECORATION.JAVA
@@ -442,7 +449,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 }
 ```
-10. 打开**MainActivity.java**，在为RecycleView设置适配器之前使用`addItemDecoration()`方法设置分割线。
+
+10. 打开 **MainActivity.java** ，在为 RecycleView 设置适配器之前使用 `addItemDecoration()` 方法设置分割线。
+
 ```java
 recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
  
@@ -450,15 +459,16 @@ recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManag
 recyclerView.setAdapter(mAdapter);
 ```
 
-如果现在运行你的app，你将看到分割线成功分割了列表的每一行。
+如果现在运行你的 app ，你将看到分割线成功分割了列表的每一行。
 
 ![](http://ww4.sinaimg.cn/mw690/006nezkigw1f16n5zw484j30k00fptad.jpg)
 
-###四、为RecyclerView添加点击事件
+### 四、为 RecyclerView 添加点击事件
 
-RecycleView没有OnItemClickListener方法去识别列表项的点击事件。而你需要做的就是写一个类继承[RecyclerView.OnItemTouchListener](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.OnItemTouchListener.html)。
+RecycleView 没有 OnItemClickListener 方法去识别列表项的点击事件。而你需要做的就是写一个类继承 [RecyclerView.OnItemTouchListener](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.OnItemTouchListener.html) 。
 
-11. 打开**MainActivity.java**并添加**RecyclerTouchListener**类以及**ClickListener**接口
+11. 打开 **MainActivity.java** 并添加 **RecyclerTouchListener** 类以及 **ClickListener** 接口
+
 ```java
 MAINACTIVITY.JAVA
 
@@ -512,7 +522,7 @@ public static class RecyclerTouchListener implements RecyclerView.OnItemTouchLis
 }
 ```
 
-最后以如下的代码为RecyclerView添加点击事件。
+最后以如下的代码为 RecyclerView 添加点击事件。
 
 ```java
 recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
@@ -529,12 +539,13 @@ recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationCont
         }));
 ```
 
-运行app然后检验点击事件。当点击其中一行时你应该能看到一条Toast信息弹出来。如果你在lollipop版本的设备上测试时，还能看到波纹效果。
+运行 app 然后检验点击事件。当点击其中一行时你应该能看到一条 Toast 信息弹出来。如果你在 lollipop 版本的设备上测试时，还能看到波纹效果。
 
 ![](http://ww2.sinaimg.cn/mw690/006nezkigw1f16n5ytcnuj30k00hjwfs.jpg)
 
-###最后的代码
-以下就是完整的**MainActivity.java**
+### 完整的代码
+以下就是完整的 **MainActivity.java**
+
 ```java
 MAINACTIVITY.JAVA
 

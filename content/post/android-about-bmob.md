@@ -5,11 +5,12 @@ tags = ["android","第三方"]
 categories = ["android"]
 +++
 
-最近尝试使用Bmob提供的后端云，请求响应速度还行，功能上基本能满足开发需求，期间遇到一些坑，查了文档也没见说明，在此做一下记录。
+最近尝试使用 Bmob 提供的后端云，请求响应速度还行，功能上基本能满足开发需求，期间遇到一些坑，查了文档也没见说明，在此做一下记录。
 
 
 比如像微信朋友圈那样发一条带图片的动态。假如是这样的一个类：
-```java
+
+``` java
 public class Daily extends BmobObject{
 	
 	private static final long serialVersionUID = 1L;
@@ -31,6 +32,7 @@ public class Daily extends BmobObject{
 
 
 当上传一张图片时，可以使用如下代码：
+
 ```java
 final Daily daily = new Daily();
 String picPath = "sdcard/temp.jpg";
@@ -75,6 +77,7 @@ bmobFile.uploadblock(context, new UploadFileListener() {
 ```
 
 当发送的图片文件大于一张时，可以使用如下代码：
+
 ```java
 String filePath_mp3 = "/mnt/sdcard/testbmob/test1.png";
 String filePath_lrc = "/mnt/sdcard/testbmob/test2.png";
@@ -107,7 +110,7 @@ Bmob.uploadBatch(context, filePaths, new UploadBatchListener() {
 });
 ```
 
-上传多张图片时只需新建一个数组传进`Bmob.uploadBatch()`方法里面就可以了。而我要说的坑就在这里，假如我用下面的代码发送含三张图片的动态。
+上传多张图片时只需新建一个数组传进 `Bmob.uploadBatch()` 方法里面就可以了。而我要说的坑就在这里，假如我用下面的代码发送含三张图片的动态。
 
 
 ```java
@@ -144,15 +147,16 @@ Bmob.uploadBatch(context, filesPath, new UploadBatchListener() {
 });
 ```
 
-按官方文档的说法，很简单地就把上面代码中的`list1`理解成所有文件上传成功后返回的三张图片的服务器地址。然而运行程序后，日志显示的却是如下
+按官方文档的说法，很简单地就把上面代码中的 `list1` 理解成所有文件上传成功后返回的三张图片的服务器地址。然而运行程序后，日志显示的却是如下
+
 ```java
 W/我的动态: 发送成功
 W/我的动态: 发送失败：It is a reserved field: createdAt.
 W/我的动态: 发送失败：It is a reserved field: objectId.
 ```
 
-说明第一个的`onSuccess()`方法被调用了三次，也就是说每上传一次文件并且成功上传就调用一次，而不是所有文件都上传成功后才调用。而后面的两个发送失败
-是重复使用同一`Daily`对象调用`save()`和`setUser()`方法所导致的。
+说明第一个的 `onSuccess()` 方法被调用了三次，也就是说每上传一次文件并且成功上传就调用一次，而不是所有文件都上传成功后才调用。而后面的两个发送失败
+是重复使用同一 `Daily` 对象调用 `save()` 和 `setUser()` 方法所导致的。
 
 而解决的方法非常简单，加个判断语句就行了。代码如下：
 
