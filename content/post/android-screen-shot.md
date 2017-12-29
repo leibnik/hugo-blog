@@ -1,5 +1,5 @@
 +++
-title = "Android SurfaceView 截图"
+title = "Android SurfaceView 截屏方案探索"
 date = "2017-09-14"
 tags = ["android","第三方"]
 categories = ["android"]
@@ -19,7 +19,7 @@ categories = ["android"]
 1. 对于使用 Canvas 渲染，渲染两次，其中一次用于创建截图
 2. 对于使用 GLES 渲染的，可以使用 `glReadPixels()` 方法创建 Bitmap
 
-在项目我采用的是第二种方法，虽然使用 GLES 时并不非要 GLSurfaceView，但却省事不少，更省事的是我无需去造一个轮子，
+在项目我采用的是第二种方法，虽然使用 GLES 时并不非要 GLSurfaceView，但却省事不少，更省事的是我无需去造一个轮子，因为已经有人给出了实现
 
 https://github.com/tarek360/Instacapture  (原repo, 支持Rxjava1)
 https://github.com/nyakokishi/Instacapture  (本人 fork 的 repo, 支持Rxjava2)

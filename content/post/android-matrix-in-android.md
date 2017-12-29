@@ -1,6 +1,6 @@
 +++
 mathjax = true
-title = "理解android矩阵"
+title = "理解 Android 里的矩阵"
 date = "2016-01-12"
 tags = ["android", "math"]
 categories = ["android"]
@@ -60,7 +60,7 @@ $a_{ij}(i=1,2,\cdots,m; j=1,2, \cdots,n)$ 即为矩阵 **A** 中第 i 行第 j �
 > $$
 > </div>
 >
-> ，即 **A**+**B**=($a_{ij} + b_{ij}$)
+> ，即 **A**+**B**=($a\_{ij}$ + $b\_{ij}$)
 
 
 矩阵的加法满足以下规律
