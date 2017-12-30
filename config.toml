@@ -1,6 +1,6 @@
 baseurl = "http://nyakokishi.github.io/"
 languageCode = "zh-cn"
-title = "喵爵"
+title = "nyakokishi's blog"
 theme = "hugo-lithium-theme"
 googleAnalytics = ""
 disqusShortname = ""
