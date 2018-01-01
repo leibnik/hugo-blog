@@ -14,7 +14,7 @@ categories = ["math"]
 
 通常 Nim 游戏的获胜目标是争取成为最后一个取完的玩家，如果反着来，最后一个取完的玩家判为输，则是 Nim 游戏的一种变形，一般称为 Anti-Nim。
 
-这个游戏最早的出处已经无法考据，但上百年历史是有的，因为 Nim 游戏的必胜策略直到 20 世纪初才由一个叫 [Charles L. Bouton](https://en.wikipedia.org/wiki/Charles_L._Bouton) 的数学家给出。论文地址：[Nim, A Game with a Complete Mathematical Theory](http://www.jstor.org/stable/1967631?origin=crossref&seq=1#page_scan_tab_contents)
+据了解这个游戏源自中国，后由到美洲打工的华人外传，之所以称为 Nim 有个说法称是由粤语的“拈”音译而得，Nim 游戏后来也演化出多个版本的玩法，它的必胜策略直到 20 世纪初才由一个叫 [Charles L. Bouton](https://en.wikipedia.org/wiki/Charles_L._Bouton) 的数学家给出。论文地址：[Nim, A Game with a Complete Mathematical Theory](http://www.jstor.org/stable/1967631?origin=crossref&seq=1#page_scan_tab_contents)
 
 ## 分析
 ### Nim 的分析
