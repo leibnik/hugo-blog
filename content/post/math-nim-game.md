@@ -1,13 +1,13 @@
 +++
 mathjax = true
-title = "走进科学之 3，5，7 取物游戏"
+title = "一个叫 “拈” 的博弈游戏"
 date = "2017-12-19"
 tags = ["game", "math", "algorithm"]
 categories = ["math"]
 +++
 
 ## 前言
-最近公司活动玩了一个叫 3，5，7 取物的博弈游戏，其规则是两位玩家轮流取物，每次取物只能在三堆物品中选择其中一堆并至少取走一个，可以直接一堆取完，所有堆取完游戏即结束并且最后取完的输。
+最近公司活动玩了一个叫 3，5，7 取物的博弈游戏，其规则是两位玩家轮流取物，每次取物只能在三堆物品中选择其中一堆并至少取走一个，可以直接一堆取完，当所有堆都取完时游戏即结束并且最后取完的输。
 这个游戏其实是一个叫 Nim 博弈游戏的一种变种玩法，Nim 游戏通常的玩法如下:
 
 > The normal game is between two players and played with three heaps of any number of objects. The two players alternate taking any number of objects from any single one of the heaps. The goal is to be the last to take an object. [#wiki](https://en.wikipedia.org/wiki/Nim#Game_play_and_illustration)
@@ -20,7 +20,7 @@ categories = ["math"]
 ### Nim 的分析
 先来分析下 Nim 游戏的规律(注意是先取完为胜的玩法)，以取石子为例，假定 w 为石子的总数(w >= 1)，这些石子被分为 n 堆(n >= 1)，局面状态以 ( $x_1$ , $x_2$, ...,$x_n$ ) 进行表示:
 
-1. 当 n = 1 同时 w = 1 时，显然先取者胜
+1. 当 n = 1 同时 w = 1 时，显然先手胜
 2. 当 n = 2 时，可以分为四种情况进行讨论
 
 	
@@ -49,7 +49,7 @@ categories = ["math"]
 
 	当堆数为 2，总石子数目为 w ，两堆为不相等的数目的石子时，局面状态为 ($x_1$, $x_2$) 其中 $x_1$ > $x_2$，此时 $x_2$ $\oplus$ $x_1$ ≠ 0，先手能使局面变为 ($x_2$, $x_2$)，$x_2$ $\oplus$ $x_2$ = 0，游戏进行下去先手必胜。
 
-	针对以上 n = 2 时的两种情形的讨论可以发现，异或规则可以用于判断先手的胜负，我们可以得到这样的结论：**当 n = 2 时，对于 ($x_1$, $x_2$)，$x_1$ > 0 且 $x_2$ > 0 ，利用异或操作符我们可以判断出先手的胜负，此时若 $x_1$ $\oplus$ $x_2$ = 0 ，则先手输，反之 $x_1$ $\oplus$ $x_2$ ≠ 0 则先手胜。**
+	针对以上 n = 2 时的两种情形的讨论可以发现，堆数为 2 时，两堆的数目的异或结果是否为 0 直接关系到先手是否能取胜（不出错的情况下），因此可以得到这样的结论：**当 n = 2 时，对于 ($x_1$, $x_2$)，$x_1$ > 0 且 $x_2$ > 0 ，利用异或操作符我们可以判断出先手的胜负，此时若 $x_1$ $\oplus$ $x_2$ = 0 ，则后手存在必胜策略，反之 $x_1$ $\oplus$ $x_2$ ≠ 0 则先手存在必胜策略。**
 
 3. 当 n > 2 时，情况又变得更为复杂，不妨讨论以下几种情形
 
@@ -94,7 +94,7 @@ categories = ["math"]
 	xor|0|0|1
 	推导一番就会发现此次是先手总能逼迫后手下出 ($x$, $x$, $y$)，($x$，$y$, 0) 的局面
 
-	多尝试几组 n = 3 的玩法，就会发现当 $x_1$ $\oplus$ $x_2$ $\oplus$ $x_3$ ≠ 0 时，先手始终有办法使自身处于安全的局面，而对方又不得不下出“坏手”，而当  $x_1$$\oplus$$x_2$$\oplus$$x_3$ = 0 时情况则反了过来。讲到这里就需要提一下博弈论中的必败态，所谓必败态，即`在对方使用最优策略时，无论做出什么决策都会导致失败的局面，其他的局面则称为非必败态。`
+	多尝试几组 n = 3 的玩法，就会发现当 $x_1$ $\oplus$ $x_2$ $\oplus$ $x_3$ ≠ 0 时，先手始终有办法使自身处于安全的局面，而对方又不得不下出“坏手”，而当  $x_1$ $\oplus$ $x_2$ $\oplus$ $x_3$ = 0 时情况则反了过来。讲到这里就需要提一下博弈论中的必败态，所谓必败态，即`在对方使用最优策略时，无论做出什么决策都会导致失败的局面，其他的局面则称为非必败态。`
 
 	必败态和非必败态有以下性质：
 
@@ -190,6 +190,70 @@ t = s $\oplus$ $x_k$ $\oplus$ $y_k$
 
 
 
+## 值得一刷的题
+这里提供下本人搜集到的有关 Nim 游戏的编程题
+
+[杭电oj：取(m堆)石子游戏](http://acm.hdu.edu.cn/showproblem.php?pid=2176)
+
+[LeetCode: Nim Game](https://leetcode.com/problems/nim-game/)
+
+[codewars 4ky 题目: Nim](https://www.codewars.com/kata/nim/train/javascript)
+
+利用已知的结论来求解问题并不困难，以这道 [codewars 4ky 题目: Nim](https://www.codewars.com/kata/nim/train/javascript) 为例：
+
+>This kata explores writing an AI for a two player, turn based game called NIM.
+
+> **The Board**
+>
+> The board starts out with several piles of straw. Each pile has a random number of straws.
+>
+> Pile 0: ||||
+>
+> Pile 1: ||
+>
+> Pile 2: |||||
+>
+> Pile 3: |
+>
+> Pile 4: ||||||
+>
+> ...or more concisely: [4,2,5,1,6]
+>
+> **The Rules**
+>
+> The players take turns picking a pile, and removing any number of straws from the pile they pick
+> A player must pick at least one straw
+> If a player picks the last straw, she wins!
+>
+> **The Task**
+>
+> In this kata, you have to write an AI to play the straw picking game.
+>
+> You have to encode an AI in a function choose_move (or chooseMove, or choose-move) that takes a board, represented as a list of positive integers, and returns
+>
+> *[pile_index, number_of_straws]*
+>
+> Which refers to an index of a pile on the board, and some none-zero number of straws to draw from that pile.
+>
+> The test suite is written so that your AI is expected to play 50 games and win every game it plays.
+
+题目大意就是给你一个以数组进行表示的局面状态，你作为先手需要下出必胜着，以 *[pile_index, number_of_straws]* 形式返回，即堆的序号以及需取走的数目。这里需要应用到定理一中的公式: `t = s $\oplus$ $x_k$ $\oplus$ $y_k$`，依据题意，我们需要做的就是使得 t = 0，再求出 `$y_k$`，即变化后的数目，最后`$x_k$ - $y_k$`就是我们需取走的数目，于是有：
+
+```
+0 = s $\oplus$ $x_k$ $\oplus$ $y_k$
+s $\oplus$ 0 = s $\oplus$ s $\oplus$ $x_k$ $\oplus$ $y_k$
+s = $x_k$ $\oplus$ $y_k$
+$y_k$ = s $\oplus$ $x_k$
+```
+翻译成代码就是如下：
+```javascript
+function chooseMove(state) {
+  let nim_sum = state.reduce((s, a) => s ^= a, 0);
+  let n = state.find((element, index, arr) => (element ^ nim_sum) <= arr[index]);
+  return [state.indexOf(n), n - (n ^ nim_sum)];
+}
+```
+
 ## 参考
 [组合数学](https://book.douban.com/subject/10606626/) 1.7 节
 
@@ -199,9 +263,3 @@ t = s $\oplus$ $x_k$ $\oplus$ $y_k$
 
 [wiki#Nim](https://en.wikipedia.org/wiki/Nim#Game_play_and_illustration)
 
-## 值得一刷的题
-[杭电oj：取(m堆)石子游戏](http://acm.hdu.edu.cn/showproblem.php?pid=2176)
-
-[LeetCode: Nim Game](https://leetcode.com/problems/nim-game/)
-
-[codewars 4ky 题目: Nim](https://www.codewars.com/kata/nim/train/javascript)

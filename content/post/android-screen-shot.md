@@ -48,4 +48,5 @@ Instacapture.INSTANCE.captureRx(this, ignoredViews).subscribe(new Action1<Bitmap
 
 ### 参考资料
 https://stackoverflow.com/questions/27817577/android-take-screenshot-of-surface-view-shows-black-screen
+
 https://source.android.com/devices/graphics/architecture
