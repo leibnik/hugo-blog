@@ -1,7 +1,8 @@
 ---
-title: 聊天app的图片气泡效果
+title: 图片气泡效果
 date: 2016-04-30
 tags: [android,自定义View,app效果模仿]
+draft: true
 categories: android
 layout: post
 ---

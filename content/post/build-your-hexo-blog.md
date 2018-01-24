@@ -1,6 +1,7 @@
 +++
 title = "Hexo博客的搭建"
 date = "2016-01-02"
+draft = true
 categories = ["折腾"]
 +++
 ### 一、前提

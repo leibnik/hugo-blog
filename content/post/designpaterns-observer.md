@@ -1,6 +1,7 @@
 +++
-title = "浅析设计模式之观察者模式"
+title = "观察者模式"
 date = "2016-03-06"
+draft = true
 tags = ["设计模式"]
 categories = ["设计模式"]
 +++
