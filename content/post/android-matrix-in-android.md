@@ -1,6 +1,6 @@
 +++
 mathjax = true
-title = "理解 Android 里的矩阵"
+title = "Matrix in Android"
 date = "2016-01-12"
 tags = ["android", "math"]
 categories = ["android"]

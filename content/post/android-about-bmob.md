@@ -1,6 +1,7 @@
 +++
 title = "使用Bmob后端云遇到的坑"
 date = "2016-02-27"
+draft = true
 tags = ["android","第三方"]
 categories = ["android"]
 +++

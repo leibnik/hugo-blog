@@ -2,6 +2,7 @@
 title: 仿微信底部导航栏切换效果
 date: 2016-05-10
 categories: android
+draft: true
 tags: [android,自定义View,app效果模仿]
 layout: post
 ---

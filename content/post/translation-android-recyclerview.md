@@ -1,16 +1,11 @@
 +++
-title = "【译】android RecyclerView的使用"
+title = "Android Working with Recycler View"
 date = "2016-02-21"
 tags = ["android", "翻译"]
 categories = ["android"]
 +++
 
-此篇博客为译文，转载请注明出处。
-
-* 原文：[Android Working with Recycler View](http://www.androidhive.info/2016/01/android-working-with-recycler-view/)
-* 原文作者：Ravi Tamada
-* 译者：nyakokishi
-* 代码地址：[RecyclerViewDemo](https://github.com/nyakokishi/RecyclerViewDemo)
+原文：[http://www.androidhive.info/2016/01/android-working-with-recycler-view/](http://www.androidhive.info/2016/01/android-working-with-recycler-view/)
 
 [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
  是一个更高级版本的 ListView ，较后者有着性能的提升和其他的优点。同时使用 RecyclerView 和 [CardView](http://developer.android.com/reference/android/support/v7/widget/CardView.html) 来生成列表和表格都是非常简单的事情。[这里](http://developer.android.com/training/material/lists-cards.html)
@@ -31,7 +26,7 @@ categories = ["android"]
         android:layout_height="wrap_content"/>
 ```
 
-在开始之前，你必须确保将你的 Android Studio 更新到[最新版本](http://tools.android.com/)。当前我的 Android Studio 已经更新到了 **Android Studio 2.0 Preview 6** (译者注：真够快的)。
+在开始之前，你必须确保将你的 Android Studio 更新到[最新版本](http://tools.android.com/)。当前我的 Android Studio 已经更新到了 **Android Studio 2.0 Preview 6**。
 
 ### 一、新建项目
 1. 在 android studio 中，点击 File->New Project ，填好所有必填项后创建项目。

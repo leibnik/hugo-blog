@@ -5,7 +5,7 @@ title = "关于"
 
 > Github : [nyakokishi](https://www.github.com/nyakokishi)
 
-> CodeWars : [niconiconi](https://www.codewars.com/users/niconiconi) (Leaderboard Position: #2,620 *util January 21, 2018* )
+> CodeWars : [niconiconi](https://www.codewars.com/users/niconiconi) (Leaderboard Position: #2,418 *util January 24, 2018* )
 
 > Email : [nyakokishi@gmail.com](mailto: nyakokishi@gmail.com)
 
