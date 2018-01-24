@@ -1,9 +1,11 @@
 +++
-title = "【译】android RecyclerView的使用"
+title = "Android Working with Recycler View"
 date = "2016-02-21"
 tags = ["android", "翻译"]
 categories = ["android"]
 +++
+
+原文：[http://www.androidhive.info/2016/01/android-working-with-recycler-view/](http://www.androidhive.info/2016/01/android-working-with-recycler-view/)
 
 [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
  是一个更高级版本的 ListView ，较后者有着性能的提升和其他的优点。同时使用 RecyclerView 和 [CardView](http://developer.android.com/reference/android/support/v7/widget/CardView.html) 来生成列表和表格都是非常简单的事情。[这里](http://developer.android.com/training/material/lists-cards.html)
