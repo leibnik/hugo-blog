@@ -1,6 +1,6 @@
 +++
 mathjax = true
-title = "一个叫 “拈” 的博弈游戏"
+title = "Nim game一个叫 “拈” 的博弈游戏"
 date = "2017-12-19"
 tags = ["game", "math", "algorithm"]
 categories = ["math"]
@@ -122,7 +122,7 @@ P 即 Previous，N 即 Next。规定局面对于上一个操作者可赢的局�
 要证明一种判定 position 性质的方法的正确性需要证明以下三个命题：
 
 ```
-1. 这个判定方法判定终态(Terminal position)为 P-position。
+1. 这个判定方法判定终态(Terminal position)为 P-position（在 misere rule 下则为 N-position）。
 2. 被该方法判定为 P-position 的局面，无法转化为其他 P-position 的局面，或者说必定会转化为 N-position。
 3. 被该方法判定为 N-position 的局面，至少存在一种往 P-position 转化的途径。
 ```
