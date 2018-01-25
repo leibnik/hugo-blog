@@ -15,12 +15,12 @@ disqusShortname = ""
 
 
 [[menu.main]]
-    name = "首页"
+    name = "Home"
     url = "/"
     weight = 4
 
 [[menu.main]]
-    name = "关于"
+    name = "About"
     url = "/about"
     weight = 7
 
