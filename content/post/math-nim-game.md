@@ -1,6 +1,6 @@
 +++
 mathjax = true
-title = "Nim game一个叫 “拈” 的博弈游戏"
+title = "一个叫 “拈” 的博弈游戏"
 date = "2017-12-19"
 tags = ["game", "math", "algorithm"]
 categories = ["math"]
