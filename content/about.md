@@ -5,7 +5,6 @@ title = "About"
 
 > Github : [nyakokishi](https://www.github.com/nyakokishi)
 
-> CodeWars : [niconiconi](https://www.codewars.com/users/niconiconi) (Rank: 3kyu, Leaderboard Position: #2,223)
+> CodeWars : [nyakokishi](https://www.codewars.com/users/nyakokishi) (Rank: 3kyu, Leaderboard Position: #2,107)
 
 > Email [:](http://english-1517131545.spampoison.com) [nyakokishi@gmail.com](mailto: nyakokishi@gmail.com)
-
