@@ -1,4 +1,4 @@
-baseurl = "http://nyakokishi.github.io/"
+baseurl = "https://nyakokishi.github.io/"
 languageCode = "zh-cn"
 title = "nyakokishi's blog"
 theme = "hugo-lithium-theme"
